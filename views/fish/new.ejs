@@ -1,5 +1,11 @@
 <%- include('../partials/header') %> 
 
-<h1>Form goes here</h1>
-
+<h1>Add Fish To Database</h1>
+ <form id="add-fish-form" action="/fish/new" method="POST"><br>
+    <input type="text" placeholder="Species" name="species"><br>
+    <input type="text" placeholder="Description" name="description"><br>
+    <input type="text" placeholder="Image Url" name="imageUrl"><br>
+    <input type="text" placeholder="Care" name="care"><br>
+    <button type="submit">Add Fish</button>
+</form>
 <%- include('../partials/footer') %> 
