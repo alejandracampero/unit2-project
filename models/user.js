@@ -9,7 +9,7 @@ const userSchema = new Schema(
     avatar: String,
     googleId: String,
     bio: String,
-    fishCollection: [{type: Schema.Types.ObjectId, ref: "Fish"}],
+    fishcollection: [{type: Schema.Types.ObjectId, ref: "Fish"}],
   },
   {
     timestamps: true,

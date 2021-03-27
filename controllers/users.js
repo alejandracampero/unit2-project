@@ -35,7 +35,7 @@ function addIntro(req, res){
 
 function currentTank(req, res){
     User.findById(req.user._id)
-    .populate("fishCollection")
+    .populate("fishcollection")
     .then((user)=>{
         res.render('users/fishcollection', {title: 'Current Tank', user})
     })
@@ -44,7 +44,7 @@ function currentTank(req, res){
 
 function buyFish(req, res){
     User.findById(req.user._id, function(error, user){
-        user.fishCollection.push(req.body.fishCollection)
-        user.save(function(){res.redirect('/users/profile')})
+        user.fishcollection.push(req.body.fishcollection)
+        user.save(function(){res.redirect('/users/profile/fishcollection')})
     })
 }

@@ -7,15 +7,14 @@
             <div class="card-body">
                 <h2 class="card-title"><%= f.species %></h2><br>
                  <p class="card-text"><%= f.description %></p><br>
-                <h4 class="card-title">Care Level: <%= f.care %></h4>
-                <h4 class="card-title">Min Tank Size: <%= f.tankSize %></h4>
+                <h4 class="card-text">Care Level: <%= f.care %></h4>
+                <h4 class="card-text">Min Tank Size: <%= f.tankSize %></h4>
             </div>
         </div>
         <div class="card-body">
             <form action="/users/profile/fishcollection?_method=PUT" method="POST">
-                <p><%= fish._id %> </p>
-                <input hidden name="fishCollection" value="<%=fish._id%>">
-                <button type="submit">Buy this Fish</button>
+                <input hidden name="fishcollection" value="<%=fish._id%>">
+                <button class="btn btn-success" type="submit">Buy this Fish</button>
                 </form>
         </div>
     <% }) %> 
