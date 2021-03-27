@@ -3,6 +3,7 @@ var router = express.Router();
 const fishCtrl = require('../controllers/fish')
 
 router.get('/', isLoggedIn, fishCtrl.index)
+router.get('/new', isLoggedIn, fishCtrl.new)
 
 
 function isLoggedIn(req, res, next) {

@@ -1,4 +1,14 @@
-<%- include('../partials/header') %>
-<h1>fish store</h1>
+<%- include('../partials/header') %> 
+    <h1>Hello <%= user.name %>!</h1>
 
-<%- include('../partials/footer') %>
+    <% fish.forEach((f)=>{ %>
+        <div class="card" style="width: 25rem;">
+            <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
+            <div class="card-body">
+                <h5 class="card-title"><%= f.species %></h5>
+                <p class="card-text"><%= f.description %></p>
+            </div>
+        </div>
+    <% }) %> 
+</ul>
+<%- include('../partials/footer') %> 
