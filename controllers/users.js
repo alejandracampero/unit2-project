@@ -1,7 +1,8 @@
 const User = require('../models/user')
 
 module.exports = {
-    profile
+    profile,
+    index
 }
 
 function profile(req, res){
@@ -14,3 +15,10 @@ function profile(req, res){
         res.redirect('/')
     })
 }
+
+function index(req, res){
+    User.find({})
+    .then((users)=>{
+        res.render('users/index', {title: 'All Users', users: users, user: req.user})
+    })
+} 
