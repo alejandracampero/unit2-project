@@ -5,8 +5,10 @@
         <div class="card" style="width: 25rem;">
             <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
             <div class="card-body">
-                <h5 class="card-title"><%= f.species %></h5>
-                <p class="card-text"><%= f.description %></p>
+                <h2 class="card-title"><%= f.species %></h2><br>
+                 <p class="card-text"><%= f.description %></p><br>
+                <h4 class="card-title">Care Level: <%= f.care %></h4>
+                <h4 class="card-title">Min Tank Size: <%= f.tankSize %></h4>
             </div>
         </div>
     <% }) %> 

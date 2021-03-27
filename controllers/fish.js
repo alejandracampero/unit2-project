@@ -3,6 +3,7 @@ const Fish = require('../models/fish')
 module.exports = {
     index,
     new:newFish,
+    create,
 }
 
 function index(req,res){
@@ -14,4 +15,14 @@ function index(req,res){
 
 function newFish(req, res){
     res.render('fish/new', {title: 'Add Fish to Fish Store', user: req.user})
+}
+
+function create(req, res){
+    Fish.create(req.body)
+    .then(()=>{
+        res.redirect('/fish/new')
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
 }

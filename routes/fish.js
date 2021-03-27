@@ -4,6 +4,7 @@ const fishCtrl = require('../controllers/fish')
 
 router.get('/', isLoggedIn, fishCtrl.index)
 router.get('/new', isLoggedIn, fishCtrl.new)
+router.post('/new', isLoggedIn, fishCtrl.create)
 
 
 function isLoggedIn(req, res, next) {
