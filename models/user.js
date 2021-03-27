@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 const userSchema = new Schema(
   {
     name: String,
     email: String,
     avatar: String,
     googleId: String,
+    bio: String,
+    fishCollection: [{type: Schema.Types.ObjectId, ref: "Fish"}],
   },
   {
     timestamps: true,

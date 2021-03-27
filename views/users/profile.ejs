@@ -1,0 +1,15 @@
+<%- include('../partials/header') %> 
+
+    <div class="card" style="width: 25rem;">
+        <img src="<%= user.avatar %>" class="card-img-top" alt="plant-image">
+        <div class="card-body">
+            <h2 class="card-title"><%= user.name %></h2>
+            <p class="card-text"><%= user.bio %></p>
+        </div>
+        <div class="card-body">
+            <a href="/personalcollection" class="card-link">Your Current Fish Tank</a>
+        </div>
+    </div>
+
+
+<%- include('../partials/footer') %> 
