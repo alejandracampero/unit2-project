@@ -2,7 +2,9 @@ const User = require('../models/user')
 
 module.exports = {
     profile,
-    index
+    index, 
+    addIntro,
+    currentTank
 }
 
 function profile(req, res){
@@ -22,3 +24,18 @@ function index(req, res){
         res.render('users/index', {title: 'All Users', users: users, user: req.user})
     })
 } 
+
+function addIntro(req, res){
+    User.findByIdAndUpdate(req.user._id, req.body, {new: true})
+    .then(()=>{
+        res.redirect('/users/profile')
+    })
+}
+
+function currentTank(req, res){
+    User.findById(req.user._id)
+    .populate('fishCollection')
+    .then((user)=>{
+        res.render('users/fishcollection', {title: 'Current Tank', user: req.user})
+    })
+}

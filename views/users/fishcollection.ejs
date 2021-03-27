@@ -1,0 +1,17 @@
+<%- include('../partials/header') %> 
+
+<% user.fishCollection.forEach((f)=>{ %>
+    <div class="card" style="width: 25rem;">
+        <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
+        <div class="card-body">
+            <h5 class="card-title"><%= f.species %></h5>
+            <p class="card-text"><%= f.description %></p>
+        </div>
+        <div class="card-body">
+          <form action="/users/profile/fishcollection?_method=DELETE" method="POST">
+             <button type="submit">Give Away</button>
+          </form>
+        </div>
+    </div>
+<% }) %> 
+<%- include('../partials/footer') %> 

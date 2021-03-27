@@ -5,9 +5,22 @@
         <div class="card-body">
             <h2 class="card-title"><%= user.name %></h2>
             <p class="card-text"><%= user.bio %></p>
+            <h6 class="card-title">Add or make changes to your bio:</h6>
+            <% if(!user.bio){ %>
+                <form action="/users/profile?_method=PUT" method="POST">
+                <input type="text" placeholder="Introduce Yourself!" name="bio" >
+                <button type="submit">Add Bio</button>
+                </form>
+            <% } else{ %>
+                <p class="card-text"><%= user.bio %></p>
+                <form action="/users/profile?_method=PUT" method="POST">
+                    <input type="text" placeholder="Update Your Bio"name="bio">
+                    <button type="submit">Update Your Bio</button>
+                </form>
+            <% } %> 
         </div>
         <div class="card-body">
-            <a href="/personalcollection" class="card-link">Your Current Fish Tank</a>
+            <a href="/users/profile/fishcollection" class="card-link">Your Current Tank</a>
         </div>
     </div>
 
