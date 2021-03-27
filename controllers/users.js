@@ -1,15 +1,16 @@
 const User = require('../models/user')
+const Fish= require('../models/fish')
 
 module.exports = {
     profile,
     index, 
     addIntro,
-    currentTank
+    currentTank,
+    buyFish
 }
 
 function profile(req, res){
     User.findById(req.user._id)
-    .populate("fishCollection")
     .then((user)=>{
         res.render('users/profile', {title: 'My Profile', user: user})
     })
@@ -34,8 +35,16 @@ function addIntro(req, res){
 
 function currentTank(req, res){
     User.findById(req.user._id)
-    .populate('fishCollection')
+    .populate("fishCollection")
     .then((user)=>{
-        res.render('users/fishcollection', {title: 'Current Tank', user: req.user})
+        res.render('users/fishcollection', {title: 'Current Tank', user})
+    })
+}
+
+
+function buyFish(req, res){
+    User.findById(req.user._id, function(error, user){
+        user.fishCollection.push(req.body.fishCollection)
+        user.save(function(){res.redirect('/users/profile')})
     })
 }

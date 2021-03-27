@@ -1,4 +1,5 @@
 const Fish = require('../models/fish')
+const User = require('../models/user')
 
 module.exports = {
     index,

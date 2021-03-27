@@ -1,6 +1,6 @@
 <%- include('../partials/header') %> 
     <h1>Hello <%= user.name %>!</h1>
-
+<ul>
     <% fish.forEach((f)=>{ %>
         <div class="card" style="width: 25rem;">
             <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
@@ -11,6 +11,14 @@
                 <h4 class="card-title">Min Tank Size: <%= f.tankSize %></h4>
             </div>
         </div>
+        <div class="card-body">
+            <form action="/users/profile/fishcollection?_method=PUT" method="POST">
+                <p><%= fish._id %> </p>
+                <input hidden name="fishCollection" value="<%=fish._id%>">
+                <button type="submit">Buy this Fish</button>
+                </form>
+        </div>
     <% }) %> 
+   
 </ul>
 <%- include('../partials/footer') %> 
