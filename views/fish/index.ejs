@@ -1,7 +1,9 @@
 <%- include('../partials/header') %> 
     <h1>Hello <%= user.name %>!</h1><br>
     <h4>Live Stock</h4>
+    
 <ul>
+  <main>
     <% fish.forEach((f)=>{ %>
         <div class="card shadow p-3" style="width: 25rem;">
             <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
@@ -18,6 +20,6 @@
         </div>
         <br>
     <% }) %> 
-   
+</main>
 </ul>
 <%- include('../partials/footer') %> 

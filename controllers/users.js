@@ -7,7 +7,8 @@ module.exports = {
     addIntro,
     currentTank,
     buyFish,
-    fishDetail
+    fishDetail,
+    otherUsersTanks
 }
 
 function profile(req, res){
@@ -64,4 +65,15 @@ function fishDetail(req, res){
         console.log(err)
     })
   }
+
+  function otherUsersTanks(req, res){
+    User.findById(req.params.id)
+    .populate('fishcollection')
+    .then((user)=>{
+        res.render('users/otherusercollection', {title: `${user.name}'s Fish Tank`, user, currentUser: req.user})
+    })
+    .catch((err)=>{
+     console.log(err)
+    })
+}
 

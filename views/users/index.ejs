@@ -1,14 +1,17 @@
 <%- include('../partials/header') %> 
 <h1><%= title %> </h1>
+<main>
 <% users.forEach((u)=>{ %>
-    <div class="card" style="width: 25rem;">
+    <div class="card shadow p-3"style="width: 25rem;">
         <img src="<%= u.avatar %>" class="card-img-top" alt="avatar">
         <div class="card-body">
             <h5 class="card-title"><%= u.name %></h5>
             <p class="card-text">Bio: <%= u.bio %></p>
         </div>
         <div class="card-body">
-            <a href="#" class="card-link">Check their fish tanks!</a>
+            <form action="/users/<%= u._id %>" class="card-link" method="GET">
+                <button type="submit">Check Users's Tank</button>
+            </form>
         </div>
     </div>
 <% }) %> 
