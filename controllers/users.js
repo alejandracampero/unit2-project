@@ -9,7 +9,8 @@ module.exports = {
     buyFish,
     fishDetail,
     otherUsersTanks,
-    edit
+    edit,
+    delete: deleteFish,
 }
 
 function profile(req, res){
@@ -85,6 +86,24 @@ function edit(req, res){
     })
     .catch((err)=>{
         console.log(err)
+    })
+}
+
+function deleteFish(req, res){
+    User.findById(req.user._id)
+    .then((user)=>{
+        let idx = user.fishcollection.indexOf(req.body.fishid)
+        user.fishcollection.splice(idx, 1)
+        user.save()
+        Fish.findById(req.body.fishid)
+        .then((fish)=>{
+            let idx = fish.Ownedby.indexOf(req.user._id)
+            fish.Ownedby.splice(idx, 1)
+            let detailIdx = fish.userDetails.indexOf(fish.userDetails.owner == req.body.owner)
+            fish.userDetails.splice(detailIdx, 1)
+            fish.save()
+        })
+        res.redirect('/users/profile/fishcollection')
     })
 }
 

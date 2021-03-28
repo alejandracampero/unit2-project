@@ -9,6 +9,7 @@ router.post('/profile/fishcollection', isLoggedIn, usersCtrl.buyFish)
 router.get('/profile/fishcollection/:id', isLoggedIn, usersCtrl.fishDetail)
 router.get('/:id/', isLoggedIn, usersCtrl.otherUsersTanks)
 router.get('/profile/fishcollection/:id/edit', isLoggedIn, usersCtrl.edit)
+router.delete('/profile/fishcollection', isLoggedIn, usersCtrl.delete)
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
