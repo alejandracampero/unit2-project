@@ -39,12 +39,21 @@ function currentTank(req, res){
     .then((user)=>{
         res.render('users/fishcollection', {title: 'Current Tank', user})
     })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 
 function buyFish(req, res){
     User.findById(req.user._id, function(error, user){
+        if(user.fishcollection.includes(req.body.fishcollection)){
+            res.redirect('/users/profile/fishcollection')
+        } else {
+        Fish.findById(req.body.fishcollection) 
         user.fishcollection.push(req.body.fishcollection)
         user.save(function(){res.redirect('/users/profile/fishcollection')})
+        }
     })
 }
+

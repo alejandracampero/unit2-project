@@ -1,5 +1,6 @@
 <%- include('../partials/header') %> 
-    <h1>Hello <%= user.name %>!</h1>
+    <h1>Hello <%= user.name %>!</h1><br>
+    <h4>Live Stock</h4>
 <ul>
     <% fish.forEach((f)=>{ %>
         <div class="card" style="width: 25rem;">
@@ -12,10 +13,10 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="/users/profile/fishcollection?_method=PUT" method="POST">
+            <form action="/users/profile/fishcollection" method="POST">
                 <input hidden name="fishcollection" value="<%=fish._id%>">
                 <button class="btn btn-success" type="submit">Buy this Fish</button>
-                </form>
+            </form>
         </div>
     <% }) %> 
    

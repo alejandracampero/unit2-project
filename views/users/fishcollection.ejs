@@ -4,4 +4,13 @@
 <form action="/users/profile" method="GET">
     <button class="btn btn-primary" type="submit">Return To Your Profile</button>
 </form>
+
+<% user.fishcollection.forEach((f)=>{ %>
+    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
+        <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
+        <div class="card-body">
+            <h5 class="card-title"><%= f.species %></h5>
+        </div>
+<% }) %> 
+
 <%- include('../partials/footer') %> 
