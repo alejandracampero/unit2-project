@@ -8,7 +8,8 @@ module.exports = {
     currentTank,
     buyFish,
     fishDetail,
-    otherUsersTanks
+    otherUsersTanks,
+    edit
 }
 
 function profile(req, res){
@@ -74,6 +75,16 @@ function fishDetail(req, res){
     })
     .catch((err)=>{
      console.log(err)
+    })
+}
+
+function edit(req, res){
+    Fish.findById(req.params.id)
+    .then((fish)=>{
+        res.render('users/edit', {title: `Put your buddy up for adoption ${fish.species}`, fish, user: req.user})
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }
 

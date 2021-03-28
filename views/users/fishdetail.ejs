@@ -10,6 +10,9 @@
             <h3 class="card-text"><%= fish.description %></h3>
         </div>
         <div>
+            <form action="/users/profile/fishcollection/<%= fish._id %>/edit" method="GET">
+                <button type="submit">Want to make changes to your tank?</button>
+            </form>
             <form action="/users/profile/fishcollection" method="GET">
               <button class="btn btn-info" type="submit">Return To Your Collection</button>
             </form>
