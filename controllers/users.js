@@ -47,13 +47,15 @@ function currentTank(req, res){
 
 function buyFish(req, res){
     User.findById(req.user._id, function(error, user){
-        if(user.fishcollection.includes(req.body.fishcollection)){
-            res.redirect('/users/profile/fishcollection')
-        } else {
-        Fish.findById(req.body.fishcollection) 
+        // if(user.fishcollection.includes(req.body.fishcollection)){
+        //     res.redirect('/users/profile/fishcollection')
+        // } else {
+        // Fish.findById(req.body.fishcollection)
+        console.log("this is my fish collection: " + user.fishcollection)
+        console.log("this req.body.fishcollection: " + req.body.fishcollection) 
         user.fishcollection.push(req.body.fishcollection)
         user.save(function(){res.redirect('/users/profile/fishcollection')})
-        }
+    //}
     })
 }
 
