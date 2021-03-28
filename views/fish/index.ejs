@@ -3,21 +3,20 @@
     <h4>Live Stock</h4>
 <ul>
     <% fish.forEach((f)=>{ %>
-        <div class="card" style="width: 25rem;">
+        <div class="card shadow p-3" style="width: 25rem;">
             <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
             <div class="card-body">
                 <h2 class="card-title"><%= f.species %></h2><br>
                  <p class="card-text"><%= f.description %></p><br>
                 <h4 class="card-text">Care Level: <%= f.care %></h4>
                 <h4 class="card-text">Min Tank Size: <%= f.tankSize %></h4>
+                <form action="/users/profile/fishcollection" method="POST">
+                    <input hidden name="fishcollection" value="<%=f._id%>">
+                    <button class="btn btn-success" type="submit" >Buy this Fish</button>
+                </form>
             </div>
         </div>
-        <div class="card-body">
-            <form action="/users/profile/fishcollection" method="POST">
-                <input hidden name="fishcollection" value="<%=f._id%>">
-                <button class="btn btn-success" type="submit" >Buy this Fish</button>
-            </form>
-        </div>
+        <br>
     <% }) %> 
    
 </ul>

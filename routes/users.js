@@ -6,6 +6,7 @@ router.get('/index', isLoggedIn, usersCtrl.index)
 router.put('/profile', isLoggedIn, usersCtrl.addIntro)
 router.get('/profile/fishcollection', isLoggedIn, usersCtrl.currentTank)
 router.post('/profile/fishcollection', isLoggedIn, usersCtrl.buyFish)
+router.get('/profile/fishcollection/:id', isLoggedIn, usersCtrl.fishDetail)
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();

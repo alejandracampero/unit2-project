@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<header>
+    <h1><%= title %></h1>
+</header>
+<main>
+    <div class="card shadow p-4" style="width: 35rem;">
+        <img src="<%= fish.imageUrl %>" class="card-img-top" alt="fish-image">
+        <div class="card-body">
+            <h1 class="card-title"><%= fish.species %></h1>
+            <h3 class="card-text"><%= fish.description %></h3>
+        </div>
+        <div>
+            <form action="/users/profile/fishcollection" method="GET">
+              <button class="btn btn-info" type="submit">Return To Your Collection</button>
+            </form>
+        </div>  
+       
+</div>
+
+<%- include('../partials/footer') %>

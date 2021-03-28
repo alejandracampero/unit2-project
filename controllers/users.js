@@ -6,7 +6,8 @@ module.exports = {
     index, 
     addIntro,
     currentTank,
-    buyFish
+    buyFish,
+    fishDetail
 }
 
 function profile(req, res){
@@ -47,15 +48,20 @@ function currentTank(req, res){
 
 function buyFish(req, res){
     User.findById(req.user._id, function(error, user){
-        // if(user.fishcollection.includes(req.body.fishcollection)){
-        //     res.redirect('/users/profile/fishcollection')
-        // } else {
-        // Fish.findById(req.body.fishcollection)
         console.log("this is my fish collection: " + user.fishcollection)
         console.log("this req.body.fishcollection: " + req.body.fishcollection) 
         user.fishcollection.push(req.body.fishcollection)
         user.save(function(){res.redirect('/users/profile/fishcollection')})
-    //}
     })
 }
+
+function fishDetail(req, res){
+    Fish.findById(req.params.id)
+    .then((fish)=>{
+        res.render('users/fishdetail', {title: `${fish.species}'s Details Page`, fish, user: req.user})
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  }
 
