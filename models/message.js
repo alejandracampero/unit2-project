@@ -1,13 +1,22 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const replySchema = new Schema({
+  postedBy: String,
+  avatar: String,
+  message: String,
+},{
+  timestamps: true
+});
 
 const messageSchema = new Schema({
-  postedBy:[{type: Schema.Types.ObjectId, ref: 'User'}],
-  title:String,
-  //replies:[replySchema]
-}, {
-  timestamps:true
-})
+    postedBy: String,
+    avatar: String,
+    title: String,
+    replies: [replySchema]
+},{
+  timestamps: true,
+});
 
-module.exports = mongoose.model("Message", messageSchema)
+module.exports = mongoose.model("Message", messageSchema);
 

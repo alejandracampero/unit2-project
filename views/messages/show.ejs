@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<main>
+    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 30rem;">
+      <img src="<%= message.postedBy[0].avatar %>" class="card-img-top" alt="plant-image">
+      <div class="card-body">
+        <h2 class="card-title"><%= message.title %> </h2>
+        <h5 class="card-text">Posted by <a href="/users/<%= message.postedBy[0]._id %>"><%= message.postedBy[0].name %></a> at <%= message.createdAt.toLocaleString() %> </h5>
+      </div>
+      <div class="card-body">
+        <% message.replies.forEach(r => { %>
+          <h6><%= r.message %> - <a href="/users/<%= r.postedById %>"><%= r.postedBy %><img id="avatarPhoto" width="25" src="<%= r.avatar %>" alt="profile image"></a></h6>
+        <% }) %>
+
+<%- include('../partials/footer') %>
