@@ -3,22 +3,38 @@
     <h1><%= title %> </h1>
     <form action="/users/profile" method="GET">
         <button class="btn btn-success" type="submit">Return To Your Profile</button>
-    </form>  
+    </form> 
+    <% if(user.fishcollection.length === 0){ %>
+        <div>
+            <img src="../../public/images/gifs/charlierun.gif" alt="empty tank">
+        </div>
+        <h5>Your tank is currently empty!</h5>
+        <form action="/fish" method="GET">
+            <button class="header-button" type="submit">Shop!</button>
+        </form> 
 </header>
-<% user.fishcollection.forEach((f)=>{ %>
+    <% } else { %>
+<main>
+  <% user.fishcollection.forEach((f)=>{ %>
     <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
         <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
         <div class="card-body">
             <h5 class="card-title"><%= f.species %></h5>
         </div>
         <form action="/users/profile/fishcollection/<%= f._id %>" method="GET">
-            <button type="submit">Details</button>
+            <button type="submit">Details</button><br>
         </form>
         <form action="/users/profile/fishcollection?_method=DELETE" method="POST">
             <input type="text" hidden name="fishid" value="<%= f._id %>">
-            <button type="submit">Give<%= f.species %> up to a good family</button>
+                <% f.userDetails.forEach((d)=>{ %>
+                    <% if(d.owner == user._id){ %>
+                        <input type="text" hidden name="owner" value="<%= d.owner %>">
+                    <% } %> 
+                <% }) %> 
+                <button class="btn btn-danger" type="submit">Give little guy away</button>
         </form>
     </div>   
-<% }) %> 
+  <% }) %> 
+<% }%> 
 
 <%- include('../partials/footer') %> 

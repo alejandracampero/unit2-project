@@ -12,10 +12,14 @@
                  <p class="card-text"><%= f.description %></p><br>
                 <h4 class="card-text">Care Level: <%= f.care %></h4>
                 <h4 class="card-text">Min Tank Size: <%= f.tankSize %></h4>
+                <% if(fish.Ownedby && fish.Ownedby.includes(user._id)){ %>
+                    <h5>You have this little guy in your tank already</h5>
+                <% } else { %>
                 <form action="/users/profile/fishcollection" method="POST">
                     <input hidden name="fishcollection" value="<%=f._id%>">
                     <button class="btn btn-success" type="submit" >Add to my Tank</button>
                 </form>
+                <% } %>
             </div>
         </div>
         <br>

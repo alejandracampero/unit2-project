@@ -50,13 +50,24 @@ function currentTank(req, res){
 
 
 function buyFish(req, res){
-    User.findById(req.user._id, function(error, user){
-        console.log("this is my fish collection: " + user.fishcollection)
-        console.log("this req.body.fishcollection: " + req.body.fishcollection) 
+   User.findById(req.user._id, function(error, user){
+    if(user.fishcollection.includes(req.body.fishcollection)){
+         res.redirect('/users/profile/fishcollection')
+    } else {
+         Fish.findById(req.body.fishcollection)
+        .then((fish)=>{
+        fish.userDetails.push({
+        owner: req.user._id,
+        })
+        fish.Ownedby.push(req.user._id)
+        fish.save()
+        })
         user.fishcollection.push(req.body.fishcollection)
         user.save(function(){res.redirect('/users/profile/fishcollection')})
-    })
+    }
+  })
 }
+
 
 function fishDetail(req, res){
     Fish.findById(req.params.id)
