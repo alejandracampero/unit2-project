@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const messageSchema = new Schema({
   postedBy:[{type: Schema.Types.ObjectId, ref: 'User'}],
   title:String,
-  replies:[replySchema]
+  //replies:[replySchema]
 }, {
   timestamps:true
 })
