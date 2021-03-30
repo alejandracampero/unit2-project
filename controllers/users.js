@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const Fish= require('../models/fish')
 
+
 module.exports = {
     profile,
     index, 
