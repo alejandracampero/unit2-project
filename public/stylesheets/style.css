@@ -1,8 +1,7 @@
 body {
   background-color: cornflowerblue;
   /* Use a system font, if none are available use an available sans-sarif font */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: 'Comic Neue', cursive;;
   margin: 0;
   display: grid;
 
@@ -16,6 +15,12 @@ nav {
 main {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+#fishcard{
+  display: grid;
+  grid-column: 1/3;
 }
 
 header{
@@ -26,4 +31,21 @@ header{
 .card{
   display: grid;
 
+}
+
+button{
+  height: 40px;
+} 
+
+
+input:hover{
+  background-color: white;
+}
+
+input{
+  border-radius: 10%;
+  height: 60px;
+  text-align: center;
+  background-color:orange;
+  border: 0 20px;
 }

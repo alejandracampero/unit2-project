@@ -5,8 +5,8 @@
 <ul>
   <main>
     <% fish.forEach((f)=>{ %>
-        <div class="card shadow p-3" style="width: 25rem;">
-            <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
+        <div id='fishcard' class="card shadow p-2 mb-5 bg-white rounded" style="width: 25rem;">
+        <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
             <div class="card-body">
                 <h2 class="card-title"><%= f.species %></h2><br>
                  <p class="card-text"><%= f.description %></p><br>
@@ -27,10 +27,12 @@
             <% } else { %>   
                 <h5>N. of users who have <%= f.species %> in ther tank: <%= f.Ownedby.length %> </h5> 
             <% } %> 
-            </div>
         </div>
-        <br>
+    </div>
     <% }) %> 
+
+    
+
 </main>
 </ul>
 <%- include('../partials/footer') %> 
