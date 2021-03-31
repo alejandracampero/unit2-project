@@ -10,6 +10,7 @@ module.exports = {
 function index(req,res){
     Fish.find({})
     .then((fish)=>{
+        console.log('fish', fish)
         res.render('fish/index', {title: 'Fish Store', user: req.user, fish: fish})
     })
 }
@@ -19,6 +20,7 @@ function newFish(req, res){
 }
 
 function create(req, res){
+    req.body.agresive = false;
     Fish.create(req.body)
     .then(()=>{
         res.redirect('/fish/new')

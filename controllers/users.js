@@ -10,7 +10,8 @@ module.exports = {
     buyFish,
     fishDetail,
     otherUsersTanks,
-    edit,
+    show,
+    update,
     delete: deleteFish,
 }
 
@@ -91,10 +92,21 @@ function fishDetail(req, res){
     })
 }
 
-function edit(req, res){
+function show(req, res){
     Fish.findById(req.params.id)
     .then((fish)=>{
-        res.render('users/edit', {title: `Put your buddy up for adoption ${fish.species}`, fish, user: req.user})
+        res.render('users/edit', {title: `Problems with ${fish.species}?`, fish, user: req.user})
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}
+
+function update(req, res){
+    req.body.agresive = !!req.body.agresive
+    Fish.findByIdAndUpdate(req.params.id,req.body)
+      .then(fish => {
+        res.redirect(`/users/profile/fishcollection/`)
     })
     .catch((err)=>{
         console.log(err)

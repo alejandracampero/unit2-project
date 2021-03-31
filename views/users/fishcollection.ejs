@@ -21,9 +21,11 @@
         <div class="card-body">
             <h5 class="card-title"><%= f.species %></h5>
         </div>
+        <a href="/users/profile/fishcollection/<%= f._id %>"><%=f.species%> </a>- <%= f.agresive? 'Agresive' : 'Not Agresive'%>
         <form action="/users/profile/fishcollection/<%= f._id %>" method="GET">
             <button type="submit">Details</button><br>
         </form>
+        
         <form action="/users/profile/fishcollection?_method=DELETE" method="POST">
             <input type="text" hidden name="fishid" value="<%= f._id %>">
                 <% f.userDetails.forEach((d)=>{ %>
