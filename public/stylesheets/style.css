@@ -1,3 +1,23 @@
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+:root {
+    font-size: 85%
+}
+
+
 body {
   background-image: url(../images/deep-ocean-background.jpeg);
   font-family: 'Comic Neue', cursive;;
@@ -7,7 +27,10 @@ body {
 
 nav {
   background-color: white;
-  font-size: 1.6rem;
+  font-size: 1.9rem;
+}
+.navbar-brand {
+  font-size: xx-large;
 }
 
 main {
@@ -22,8 +45,13 @@ main {
 }
 
 #fishcard{
- height: 70rem;
- 
+ height: 65rem;
+ justify-content: center;
+ margin: auto;
+ background-image: linear-gradient(to left bottom, #cddcdc, #b5cfd0, #9cc2c5, #83b6ba, #68a9b0, #5da7b0, #51a5b0, #44a3b0, #49abba, #4db3c4, #52bcce, #57c4d8);
+ border-color: black;
+ border-width: 0.5rem;
+ color: blanchedalmond;
 }
 
 header{
@@ -34,6 +62,13 @@ header{
 button{
   height: 40px;
 } 
+
+.btn {
+  font-size: small;
+  width: fit-content;
+  text-align: center;
+  justify-self: center;
+}
 
 
 input:hover{
@@ -59,8 +94,23 @@ input{
 #messageboard{
 display: block;
 margin: 0 600px;
+align-content: center;
 }
+#reply{
+  display: block;
+  margin: 0 600px;
+  align-content: center;
+  }
 
 #questionbutton{
   margin: auto;
+}
+
+#profilepage{
+  background-image:url(../images/fishbackground3.jpeg);
+}
+
+#fishimg{
+  border-radius: 20%;
+  border: 2px solid black;
 }

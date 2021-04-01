@@ -1,14 +1,14 @@
 <%- include('../partials/header') %> 
 <header>
     <h1>Hello <%= user.name %>!</h1><br>
-    <h4>Check Out our Live Stock</h4>  
+    <h2>Check Out our Live Stock</h2>  
 </header>
   
 <ul>
   <main>
     <% fish.forEach((f)=>{ %>
         <div id='fishcard' class="card shadow p-2 mb-5 bg-white rounded" style="width: 25rem;">
-        <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
+        <img id= "fishimg"src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
             <div class="card-body">
                 <h2 class="card-title"><%= f.species %></h2><br>
                  <p class="card-text"><%= f.description %></p><br>
@@ -19,12 +19,12 @@
                 <% if(f.Ownedby && f.Ownedby.includes(user._id)){ %>
                     <h5>You have this little guy in your tank already!</h5>
                 <% } else { %>
-                <form action="/users/profile/fishcollection" method="POST">
+                <form action="/users/profile/fishcollection"  method="POST">
                     <input hidden name="fishcollection" value="<%=f._id%>">
                     <button class="btn btn-success" type="submit" >Add to my Tank</button>
                 </form>
                 <% } %>
-            <% if(f.Ownedby.length == 0){ %>
+            <% if(f.Ownedby.length === 0){ %>
                 <h5>Be the first to take it home!</h5>
             <% } else { %>   
                 <h5>N. of users who have <%= f.species %> in ther tank: <%= f.Ownedby.length %> </h5> 
@@ -34,4 +34,5 @@
     <% }) %> 
 </main>
 </ul>
+
 <%- include('../partials/footer') %> 

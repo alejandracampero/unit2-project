@@ -1,8 +1,81 @@
-<%- include('../partials/header') %> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+       <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <title><%= title %></title>
+  </head>
+  <body id="profilepage">
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+      <img src="/images/fish3.png" alt="image"/>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Tank Mates</a>
+        <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarTogglerDemo01" 
+        aria-controls="navbarTogglerDemo01" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+          <ul class="navbar-nav" id="nav-list">
+            <% if (user) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a 
+                class="nav-link" href="/fish"
+                >Fish Store</a>
+              </li>
+              <li class="nav-item">
+                <a 
+                class="nav-link" href="/users/profile"
+                >Profile</a>
+              </li>
+              <li class="nav-item">
+                <a 
+                class="nav-link" href="/users/index"
+                >All Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/messages">Q & A</a>
+              </li>
+            <% if(user.email === 'alejandralopezcv21@gmail.com'){ %>
+              <li class="nav-item">
+                <a class="nav-link" href="/fish/new">Add Fish To Database</a>
+              </li>
+            <% } %>
+            <li id="nav-end" class="nav-item">
+              <a class="nav-link" href="/auth/logout">Log Out</a>
+            </li>
+            <% } else { %>
+              <li id="nav-end" class="nav-item">
+                <a class="nav-link" href="/auth/google">Login with Google</a>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
 <header>
   <h1><%= title %> </h1>
 </header>
-    <div id ="profile"class="card" style="width: 25rem;">
+    <div id ="profile"class="card shadow p-3"style="width: 25rem;">
         <img src="<%= user.avatar %>" class="card-img-top" alt="fish-image">
         <div class="card-body">
             <h2 class="card-title"><%= user.name %></h2>

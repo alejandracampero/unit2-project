@@ -23,7 +23,7 @@
         </div>
        <%= f.aggressive? 'AGGRESSIVE' : 'PEACEFUL'%>
         <form action="/users/profile/fishcollection/<%= f._id %>" method="GET">
-            <button type="submit">Details</button><br>
+            <button class="btn btn-dark" type="submit">Details</button><br>
         </form>
         
         <form action="/users/profile/fishcollection?_method=DELETE" method="POST">

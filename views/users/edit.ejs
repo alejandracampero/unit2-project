@@ -10,9 +10,9 @@
         </div>
         <div class="card-body">
             <form action="/users/profile/fishcollection/<%= fish._id %>?_method=PUT" method="POST">
-                <input type="text" value="<%=fish.species%>" name="species" placeholder="Fish Species">
+                <input hidden type="text" value="<%=fish.species%>" name="species" placeholder="Fish Species">
                 <label for='aggressive'>Aggressive? <input type='checkbox' name='aggressive'<%=fish.aggressive ? 'checked' : ''%>></label>
-                <button type="submit">Edit</button>
+                <button class="btn btn-dark" type="submit">Update</button>
             </form>
     </div>
 
