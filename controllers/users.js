@@ -103,7 +103,7 @@ function show(req, res){
 }
 
 function update(req, res){
-    req.body.agresive = !!req.body.agresive
+    req.body.aggressive = !!req.body.aggressive
     Fish.findByIdAndUpdate(req.params.id,req.body)
       .then(fish => {
         res.redirect(`/users/profile/fishcollection/`)

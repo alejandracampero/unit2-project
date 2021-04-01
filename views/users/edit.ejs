@@ -11,7 +11,7 @@
         <div class="card-body">
             <form action="/users/profile/fishcollection/<%= fish._id %>?_method=PUT" method="POST">
                 <input type="text" value="<%=fish.species%>" name="species" placeholder="Fish Species">
-                <label for='agresive'>Agresive? <input type='checkbox' name='agresive'<%=fish.agresive ? 'checked' : ''%>></label>
+                <label for='aggressive'>Aggressive? <input type='checkbox' name='aggressive'<%=fish.aggressive ? 'checked' : ''%>></label>
                 <button type="submit">Edit</button>
             </form>
     </div>

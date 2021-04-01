@@ -20,7 +20,7 @@ function newFish(req, res){
 }
 
 function create(req, res){
-    req.body.agresive = false;
+    req.body.aggressive = false;
     Fish.create(req.body)
     .then(()=>{
         res.redirect('/fish/new')

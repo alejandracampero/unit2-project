@@ -21,7 +21,7 @@
         <div class="card-body">
             <h5 class="card-title"><%= f.species %></h5>
         </div>
-       <%= f.agresive? 'AGRESIVE' : 'PEACEFUL'%>
+       <%= f.aggressive? 'AGGRESSIVE' : 'PEACEFUL'%>
         <form action="/users/profile/fishcollection/<%= f._id %>" method="GET">
             <button type="submit">Details</button><br>
         </form>

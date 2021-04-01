@@ -11,7 +11,7 @@ const fishSchema = new Schema({
   description: {type: String},
   care:{type: String},
   tankSize:{type: String},
-  agresive: Boolean,
+  aggressive: Boolean,
   Ownedby: [{type: Schema.Types.ObjectId, ref: "User"}],
   userDetails: [userDetailsSchema]
 }, {
