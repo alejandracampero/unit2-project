@@ -15,19 +15,19 @@
                 <h4 class="card-text">Care Level: <%= f.care %></h4>
                 <h4 class="card-text">Min Tank Size: <%= f.tankSize %></h4>
             </div>
-            <div class="card-body">
+            <div id="addtotank" class="card-body">
                 <% if(f.Ownedby && f.Ownedby.includes(user._id)){ %>
-                    <h5>You have this little guy in your tank already!</h5>
+                    <h5>You own this one already!</h5>
                 <% } else { %>
-                <form action="/users/profile/fishcollection"  method="POST">
+                <form  action="/users/profile/fishcollection"  method="POST">
                     <input hidden name="fishcollection" value="<%=f._id%>">
-                    <button class="btn btn-success" type="submit" >Add to my Tank</button>
+                    <button id= "addbtn"class="btn btn-success" type="submit" >Add to my Tank</button>
                 </form>
                 <% } %>
             <% if(f.Ownedby.length === 0){ %>
                 <h5>Be the first to take it home!</h5>
             <% } else { %>   
-                <h5>N. of users who have <%= f.species %> in ther tank: <%= f.Ownedby.length %> </h5> 
+                <h5>No. of users who own this:  <%= f.Ownedby.length %> </h5> 
             <% } %> 
         </div>
     </div>

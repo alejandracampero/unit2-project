@@ -68,6 +68,7 @@ button{
   width: fit-content;
   text-align: center;
   justify-self: center;
+  padding-bottom: 0.3rem;
 }
 
 
@@ -113,4 +114,11 @@ align-content: center;
 #fishimg{
   border-radius: 20%;
   border: 2px solid black;
+}
+
+#addtotank{
+  text-align: center;
+}
+#addbtn{
+  margin-bottom: 2rem;
 }
