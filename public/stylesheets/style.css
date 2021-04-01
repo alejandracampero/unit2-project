@@ -85,7 +85,16 @@ input{
 }
 
 #profile{
+  border-color: black;
+  border-width: 0.5rem;
   margin: auto;
+  text-align: center;
+  background-image: radial-gradient(circle, #e3dd98, #e6dfa7, #e8e2b5, #eae4c3, #ebe7d2, #eae5cc, #e8e4c6, #e7e2c0, #e3dba4, #ded488, #d9cd6c, #d4c64d);
+}
+
+#profilepic{
+  border-radius: 40%;
+  border: 2px solid blanchedalmond;
 }
 
 #messages{

@@ -73,10 +73,10 @@
       </div>
     </nav>
 <header>
-  <h1><%= title %> </h1>
+  <h1><%= title %> </h1><br>
 </header>
     <div id ="profile"class="card shadow p-3"style="width: 25rem;">
-        <img src="<%= user.avatar %>" class="card-img-top" alt="fish-image">
+        <img id="profilepic"src="<%= user.avatar %>" class="card-img-top" alt="fish-image">
         <div class="card-body">
             <h2 class="card-title"><%= user.name %></h2>
             <p class="card-text"><%= user.bio %></p>
@@ -90,7 +90,7 @@
                 <p class="card-text"><%= user.bio %></p>
                 <form action="/users/profile?_method=PUT" method="POST">
                     <input type="text" placeholder="Update Your Bio"name="bio">
-                    <button class="btn btn-secondary" type="submit">Update Your Bio</button>
+                    <button class="btn btn-info" type="submit">Submit</button>
                 </form>
             <% } %> 
         </div>
