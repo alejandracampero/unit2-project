@@ -16,20 +16,20 @@
     <% } else { %>
 <main>
   <% user.fishcollection.forEach((f)=>{ %>
-    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
-        <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
+    <div id="smallfishcard" class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
+        <img id= "fishimg" src="<%= f.imageUrl %>" class="card-img-top" alt="fish-img">
         <div class="card-body">
             <h5 class="card-title"><%= f.species %></h5>
         </div>
        <%= f.aggressive? 'AGGRESSIVE' : 'PEACEFUL'%>
-        <form action="/users/profile/fishcollection/<%= f._id %>" method="GET">
+        <form id= "detsbutton"action="/users/profile/fishcollection/<%= f._id %>" method="GET">
             <button class="btn btn-dark" type="submit">Details</button><br>
         </form>
         
-        <form action="/users/profile/fishcollection?_method=DELETE" method="POST">
+        <form id= "detsbutton"action="/users/profile/fishcollection?_method=DELETE" method="POST">
             <input type="text" hidden name="fishid" value="<%= f._id %>">
                 <% f.userDetails.forEach((d)=>{ %>
-                    <% if(d.owner == user._id){ %>
+                    <% if(d.owner === user._id){ %>
                         <input type="text" hidden name="owner" value="<%= d.owner %>">
                     <% } %> 
                 <% }) %> 

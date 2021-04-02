@@ -1,13 +1,13 @@
 <%- include('../partials/header') %> 
 <header>
     <form action="/users/index" method="GET">
-         <button class="header-button" type="submit">Return To All User's Profile</button>
+         <button class="header-button" type="submit">Return To All User's Profiles</button>
     </form>
 </header>
     <main>
         <% user.fishcollection.forEach((f)=>{ %>
-            <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
-                <img src="<%= f.imageUrl %>" class="card-img-top" alt="fish-image">
+            <div id = "smallfishcard" class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
+                <img id= "fishimg" src="<%= f.imageUrl %>" class="card-img-top" alt="fish-image">
                 <div class="card-body">
                     <h5 class="card-title"><%= f.species %></h5>
                 </div>

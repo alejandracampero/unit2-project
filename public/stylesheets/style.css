@@ -77,23 +77,22 @@ input:hover{
 }
 
 input{
-  border-radius: 10%;
-  height: 60px;
+  height: 50px;
   text-align: center;
-  background-color:orange;
   border: 0 20px;
 }
 
 #profile{
+  margin: 50px auto;
   border-color: black;
   border-width: 0.5rem;
-  margin: auto;
+  
   text-align: center;
-  background-image: radial-gradient(circle, #e3dd98, #e6dfa7, #e8e2b5, #eae4c3, #ebe7d2, #eae5cc, #e8e4c6, #e7e2c0, #e3dba4, #ded488, #d9cd6c, #d4c64d);
+  background-image: radial-gradient(circle, #86e5eb, #a0e7dd, #b9e8d4, #cfe8d2, #e0e9d7, #d9e3d2, #d2dccd, #cbd6c8, #acc7ba, #8db8b4, #70a7b1, #5e94af);
 }
 
 #profilepic{
-  border-radius: 40%;
+  border-radius: 50%;
   border: 2px solid blanchedalmond;
 }
 
@@ -102,15 +101,27 @@ input{
 }
 
 #messageboard{
-display: block;
-margin: 0 600px;
-align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 2.5rem;
 }
+
 #reply{
-  display: block;
-  margin: 0 600px;
-  align-content: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-left: 15%;
+  margin-right: 15%;
+  color: blanchedalmond;
+  font-size: 3.5rem;
+}
 
 #questionbutton{
   margin: auto;
@@ -131,3 +142,42 @@ align-content: center;
 #addbtn{
   margin-bottom: 2rem;
 }
+
+#viewtank{
+  font-size: 2rem;
+}
+
+#edit{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#checkbox{
+  box-sizing: border-box;
+}
+
+#smallfishcard{
+  justify-content: center;
+  margin: auto;
+  background-image: linear-gradient(to left bottom, #cddcdc, #b5cfd0, #9cc2c5, #83b6ba, #68a9b0, #5da7b0, #51a5b0, #44a3b0, #49abba, #4db3c4, #52bcce, #57c4d8);
+  border-color: black;
+  border-width: 0.5rem;
+  color: blanchedalmond;
+}
+
+#detsbutton{
+  margin: 15px auto;
+}
+
+#welcome{
+  font-size: 2rem;
+  color: blanchedalmond;
+  margin: 5% 20% 20% 20%;
+  text-align: center;
+}
+
+header{
+  margin-top: 5%;
+}
+

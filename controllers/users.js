@@ -95,7 +95,7 @@ function fishDetail(req, res){
 function show(req, res){
     Fish.findById(req.params.id)
     .then((fish)=>{
-        res.render('users/edit', {title: `Problems with ${fish.species}?`, fish, user: req.user})
+        res.render('users/edit', {title: `Mark ${fish.species} As Aggressive`, fish, user: req.user})
     })
     .catch((err)=>{
         console.log(err)
