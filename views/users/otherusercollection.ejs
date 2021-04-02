@@ -5,6 +5,12 @@
     </form>
 </header>
     <main>
+        <% if(user.fishcollection.length === 0){ %>
+            <div>
+                <img src="../../images/gifs/empty.gif" alt="empty tank">
+            </div>
+            
+            <% } else { %>
         <% user.fishcollection.forEach((f)=>{ %>
             <div id = "smallfishcard" class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
                 <img id= "fishimg" src="<%= f.imageUrl %>" class="card-img-top" alt="fish-image">
@@ -13,5 +19,6 @@
                 </div>
             </div>   
     <% })%>
+    <% }%> 
     
 <%- include('../partials/footer') %> 
