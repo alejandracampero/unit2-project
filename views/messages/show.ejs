@@ -8,7 +8,6 @@
 		Posted on <%= message.createdAt.toLocaleString() %> - <%= message.postedBy %>
 		<img id="avatar" width="30" src="<%= message.avatar %>" alt="">
 	</h5>
-	
 	<% message.replies.forEach(reply => { %>
 	  <h6>
 			<%= reply.message %> - <%= reply.postedBy %> - 
@@ -16,7 +15,6 @@
 			<img id="avatar" width="25" src="<%= reply.avatar %>" alt="">
 		</h6>
 	<% }) %>
-	
 	<form action="/messages/<%= message._id %>" method="POST">
 	  <div class="form-group">
 		<input 

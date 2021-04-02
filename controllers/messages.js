@@ -4,8 +4,7 @@ module.exports = {
     index, 
     create,
     show, 
-    reply
-    
+    reply 
 }
 
 function index(req, res){
