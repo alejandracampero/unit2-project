@@ -1,14 +1,16 @@
 <%- include('../partials/header') %> 
 <header>
-    <h1><%= title %> </h1>
+    <h1> </h1>
 </header>
 <main>
     <div id = "smallfishcard" class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
         <img id= "fishimg" src="<%= fish.imageUrl %>" class="card-img-top" alt="fish-image">
         <div class="card-body">
-            <h1 class="card-title"><%= fish.species %></h1>
+            <h1 class="card-title"><%= fish.species %></h1>   
         </div>
+        <h3>Mark as aggressive?</h3>
         <div id="edit" class="card-body">
+           
             <form action="/users/profile/fishcollection/<%= fish._id %>?_method=PUT" method="POST">
                 <input hidden type="text" value="<%=fish.species%>" name="species" placeholder="Fish Species">
                 <input id="checkbox"type='checkbox' name='aggressive'<%=fish.aggressive ? 'checked' : ''%>><br>
