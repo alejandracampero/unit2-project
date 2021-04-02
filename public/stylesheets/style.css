@@ -119,7 +119,6 @@ input{
   flex-direction: column;
   margin-left: 15%;
   margin-right: 15%;
-  color: blanchedalmond;
   font-size: 3.5rem;
 }
 
@@ -163,6 +162,7 @@ input{
   background-image: linear-gradient(to left bottom, #cddcdc, #b5cfd0, #9cc2c5, #83b6ba, #68a9b0, #5da7b0, #51a5b0, #44a3b0, #49abba, #4db3c4, #52bcce, #57c4d8);
   border-color: black;
   border-width: 0.5rem;
+  color: blanchedalmond;
 }
 
 #detsbutton{
